@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<!-- Root container for the login screen, arranged horizontally -->
+<HBox prefHeight="600.0" prefWidth="800.0" styleClass="root" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_chatbot.UserExperience.LoginController">
+
+    <!-- Left panel containing the logo and bank name -->
+    <VBox alignment="CENTER" prefHeight="600.0" prefWidth="345.0" style="-fx-background-color: #b7ffa6;">
+        <ImageView fx:id="logoImage" fitHeight="250" fitWidth="250" /> <!-- Logo image -->
+        <Text styleClass="DBO BANK" text="DBO BANK"> <!-- Bank name text -->
+            <font>
+                <Font name="System Bold Italic" size="21.0" /> <!-- Font styling for bank name -->
+            </font>
+        </Text>
+        <Text styleClass="welcome-text" /> <!-- Placeholder for welcome text -->
+    </VBox>
+
+    <!-- Right panel containing the login form -->
+    <VBox alignment="CENTER" prefHeight="600.0" prefWidth="471.0" spacing="20.0" style="-fx-background-color: #ffffff;" styleClass="login-panel">
+        <padding>
+            <Insets bottom="30" left="40" right="40" top="30" /> <!-- Padding for the login panel -->
+        </padding>
+        <Text layoutX="58.0" layoutY="145.0" styleClass="title-text" text="Welcome to DBO BANK" textAlignment="CENTER" wrappingWidth="312.0"> <!-- Welcome title -->
+            <font>
+                <Font name="Arial Bold" size="18.0" /> <!-- Font styling for welcome title -->
+            </font>
+        </Text>
+        <Text text="DBO Bank Chatbot is your personal virtual assistant designed to make banking easier and more accessible. Whether you need help managing your accounts, transferring funds, or getting answers to your financial questions, the chatbot is here 24/7 to assist you."
+              style="-fx-font-size: 12px; -fx-text-fill: #555555;"
+              textAlignment="CENTER"
+              wrappingWidth="300.0" /> <!-- Text wrapping for description -->
+
+        <Text styleClass="title-text" text="Sign In to continue" textAlignment="CENTER" wrappingWidth="312.0"> <!-- Sign-in prompt -->
+            <font>
+                <Font name="Arial Italic" size="10.0" /> <!-- Font styling for sign-in prompt -->
+            </font>
+        </Text>
+
+        <!-- Spacer VBox for layout -->
+        <VBox prefHeight="21.0" prefWidth="312.0" spacing="30" />
+
+        <!-- VBox for input fields and buttons -->
+        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="222.0" prefWidth="260.0" spacing="20">
+            <TextField fx:id="usernameField" promptText="Username" /> <!-- Input field for username -->
+            <PasswordField fx:id="passwordField" prefHeight="26.0" prefWidth="344.0" promptText="Password" styleClass="password-field" /> <!-- Input field for password -->
+
+            <HBox alignment="CENTER_RIGHT" /> <!-- Empty HBox for alignment purposes -->
+
+            <Button maxWidth="Infinity" onAction="#handleLogIn" style="-fx-background-color: #27c301; -fx-text-fill: WHITE;" styleClass="login-button" text="Login" /> <!-- Login button -->
+
+            <HBox alignment="CENTER" spacing="5"> <!-- HBox for new user prompt -->
+                <Text text="New User?" /> <!-- Text prompting for new users -->
+                <Hyperlink onAction="#handleSignUp" styleClass="signup-link" text ="Signup" /> <!-- Hyperlink for signing up -->
+            </HBox>
+        </VBox>
+    </VBox>
+</HBox>

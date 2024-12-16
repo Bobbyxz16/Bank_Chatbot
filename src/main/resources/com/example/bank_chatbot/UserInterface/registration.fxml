@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?> <!-- Importing Insets for padding -->
+<?import javafx.scene.control.Button?> <!-- Importing Button control -->
+<?import javafx.scene.control.PasswordField?> <!-- Importing PasswordField control -->
+<?import javafx.scene.control.TextField?> <!-- Importing TextField control -->
+<?import javafx.scene.image.ImageView?> <!-- Importing ImageView for displaying images -->
+<?import javafx.scene.layout.HBox?> <!-- Importing HBox layout for horizontal arrangement -->
+<?import javafx.scene.layout.VBox?> <!-- Importing VBox layout for vertical arrangement -->
+<?import javafx.scene.text.Font?> <!-- Importing Font for text styling -->
+<?import javafx.scene.text.Text?> <!-- Importing Text for displaying text -->
+
+<!-- Root container for the registration screen, arranged horizontally -->
+<HBox prefHeight="600.0" prefWidth="800.0" styleClass="root" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_chatbot.UserExperience.RegistrationController">
+
+    <!-- Placeholder for back arrow button, currently empty and not used -->
+    <VBox alignment="TOP_LEFT" spacing="10" />
+
+    <!-- Left panel containing the registration form -->
+    <VBox alignment="CENTER" prefHeight="600.0" prefWidth="469.0" spacing="20.0" style="-fx-background-color: #ffffff;" styleClass="registration-panel">
+        <padding>
+            <Insets bottom="30" left="40" right="40" top="30" /> <!-- Padding for the registration panel -->
+        </padding>
+
+        <!-- Title of the registration form -->
+        <Text styleClass="title-text" text="Registration Form" textAlignment="CENTER" wrappingWidth="312.0">
+            <font>
+                <Font name="Arial Bold" size="18.0" /> <!-- Font styling for the title -->
+            </font>
+        </Text>
+
+        <!-- Subtitle prompting the user to fill out the form -->
+        <Text styleClass="subtitle-text" text="Fill the form for registration" textAlignment="CENTER" wrappingWidth="300.0">
+            <font>
+                <Font name="Arial" size="12.0" /> <!-- Font styling for the subtitle -->
+            </font>
+        </Text>
+
+        <!-- VBox for input fields -->
+        <VBox spacing="10">
+            <TextField fx:id="nameField" promptText="Enter Name" styleClass="text-field" /> <!-- Input field for name -->
+            <TextField fx:id="surnameField" promptText="Enter Surname" styleClass="text-field" /> <!-- Input field for surname -->
+            <TextField fx:id="numberField" promptText="Enter Phone Number" styleClass="text-field" /> <!-- Input field for phone number -->
+            <TextField fx:id="emailField" promptText="Enter Email" styleClass="text-field" /> <!-- Input field for email -->
+            <TextField fx:id="usernameField" promptText="Enter Username" styleClass="text-field" /> <!-- Input field for username -->
+            <PasswordField fx:id="passwordField" promptText="Enter Password" styleClass="password-field" /> <!-- Input field for password -->
+        </VBox>
+
+        <!-- Button to submit the registration form -->
+        <Button maxWidth="Infinity" onAction="#handleRegistration" style="-fx-background-color: #27c301; -fx-text-fill: white;" styleClass="register-button" text="Register" />
+
+        <!-- Back button with an arrow graphic -->
+        <Button onAction="#handleBackAction" prefHeight="46.0" prefWidth="52.0" style="-fx-background-color: transparent;">
+            <graphic>
+                <ImageView fx:id="greenArrowImage" fitHeight="30" fitWidth="30" preserveRatio="true" /> <!-- Image for the back arrow -->
+            </graphic>
+        </Button>
+    </VBox>
+
+    <!-- Right panel containing the logo and bank name -->
+    <VBox alignment="CENTER" prefHeight="600.0" prefWidth="402.0" style="-fx-background-color: #b7ffa6;">
+        <ImageView fx:id="logoImage" fitHeight="250" fitWidth="250" /> <!-- Logo image -->
+        <Text styleClass="DBO BANK" text="DBO BANK"> <!-- Bank name text -->
+            <font>
+                <Font name="System Bold Italic" size="21.0" /> <!-- Font styling for the bank name -->
+            </font>
+        </Text>
+        <Text styleClass="welcome-text" /> <!-- Placeholder for welcome text -->
+    </VBox>
+
+</HBox>

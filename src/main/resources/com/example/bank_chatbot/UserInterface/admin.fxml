@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox alignment="CENTER" spacing="20" style="-fx-padding: 20;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.bank_chatbot.UserExperience.AdminController">
+
+    <!-- Left Panel: Instructions -->
+    <VBox prefHeight="566.0" prefWidth="315.0" spacing="10" style="-fx-padding: 10; -fx-border-color: lightgray; -fx-border-width: 1;">
+        <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="How to Use" />
+        <TextArea editable="false" prefHeight="556.0" prefWidth="293.0" text="Instructions: 1. Start with 'INITIAL, NULL' to begin the conversation. &#10;&#10;2. Type the name of the conversation (e.g., 'Block Card Flow'). Enter words that will start the conversation, separated by commas (e.g., 'block card, lost card') and a question for the user (How do I block my card?).&#10;&#10;3. Write the steps of the conversation like this:    currentState,userInput,responseText,nextState&#10; &#10;4. To end the conversation, include a question asking 'Do you need anything else?' followed by 'EXIT'. &#10;&#10;5. To validate user input you should put the same state and the begining &amp;&amp; end. Example: CONFIRM_BLOCK, NULL, I didn’t quite catch that. Please choose: yes or  no, CONFIRM_BLOCK&#10;&#10;Example Conversation Steps:&#10;INITIAL,NULL,Welcome! Do you want to block your card?,CONFIRM_BLOCK&#10;CONFIRM_BLOCK,yes,Your card is now blocked.Do you need anything else?,EXIT&#10;CONFIRM_BLOCK,no,You can block your card using our app.Do you need anything else?,EXIT&#10; &#10;output: CONFIRM_BLOCK, NULL, &#10;'Please choose: yes or no., CONFIRM_BLOCK    " wrapText="true" />
+    </VBox>
+
+    <!-- Right Panel: Admin Input Form -->
+    <VBox alignment="TOP_CENTER" prefHeight="602.0" prefWidth="522.0" spacing="10" style="-fx-padding: 20; -fx-border-color: lightgray; -fx-border-width: 1;">
+        <Label style="-fx-font-size: 16px; -fx-font-weight: bold;" text="Admin Panel" />
+
+        <!-- Conversation Name Field -->
+        <HBox spacing="10">
+            <Label text="Conversation Name:" />
+            <TextField fx:id="conversationTypeField" prefHeight="26.0" prefWidth="278.0" promptText="e.g Opening Hours Flow" />
+        </HBox>
+
+        <!-- Trigger Words Field -->
+        <HBox spacing="10">
+            <Label prefHeight="18.0" prefWidth="106.0" text="Keywords:" />
+            <TextField fx:id="keywordsField" prefHeight="26.0" prefWidth="278.0" promptText="Enter words separated by commas"/>
+        </HBox>
+
+        <HBox spacing="10">
+            <Label prefHeight="18.0" prefWidth="105.0" text="User  Question:" />
+            <TextField fx:id="userQuestionField" prefHeight="26.0" prefWidth="278.0" promptText="Enter the question for the user" />
+        </HBox>
+
+        <!-- Conversation Steps Field -->
+        <VBox alignment="CENTER" spacing="10">
+            <Label text="Conversation Steps (Format: currentState,userInput,responseText,nextState):" />
+            <TextArea fx:id="flowField" prefHeight="310.0" prefWidth="481.0" promptText="Enter steps separated by new lines, don't use apostrophes." />
+        </VBox>
+
+        <!-- Action Button -->
+        <HBox alignment="CENTER" spacing="10">
+            <Button onAction="#handleAdd" style="-fx-background-color: #27c301; -fx-text-fill: white;" text="Add Conversation" />
+        </HBox>
+
+    </VBox>
+
+</HBox>
